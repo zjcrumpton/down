@@ -1,6 +1,8 @@
+#include <Colors.hpp>
 #include <Components.hpp>
 #include <Player.hpp>
 #include <Screen.hpp>
+#include <Symbols.hpp>
 #include <ncurses.h>
 
 Screen::Screen() {
@@ -21,4 +23,11 @@ Screen::~Screen() {
 void Screen::initColors() {
   start_color();
   init_pair(Colors::PLAYER, COLOR_BLUE, COLOR_BLACK);
+  init_pair(Colors::EMPTY, COLOR_BLACK, COLOR_BLACK);
+};
+
+void Screen::clearPos(Position &pos) {
+  attron(COLOR_PAIR(Colors::EMPTY));
+  mvaddch(pos.y, pos.x, Symbols::EMPTY);
+  attroff(COLOR_PAIR(Colors::EMPTY));
 };

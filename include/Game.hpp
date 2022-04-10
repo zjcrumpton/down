@@ -15,6 +15,7 @@ private:
 
   // Start the main game loop
   void start();
-  // Process player input. If function returns true, player has chosen to exit the program.
+  // Process player input. If function returns true, player has chosen to exit
+  // the program.
   bool processInput(char ch);
 };

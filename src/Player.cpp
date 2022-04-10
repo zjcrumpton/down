@@ -1,7 +1,8 @@
-#include <Player.hpp>
-#include <Symbols.hpp>
 #include <Colors.hpp>
 #include <Components.hpp>
+#include <Direction.hpp>
+#include <Player.hpp>
+#include <Symbols.hpp>
 
 Player::Player(int x, int y) {
   _pos.x = x;
@@ -10,10 +11,23 @@ Player::Player(int x, int y) {
   _style.symbol = Symbols::PLAYER;
 };
 
-Position &Player::pos() {
-  return _pos;
+void Player::move(Direction d) {
+  switch (d) {
+  case LEFT:
+    _pos.x--;
+    break;
+  case RIGHT:
+    _pos.x++;
+    break;
+  case UP:
+    _pos.y--;
+    break;
+  case DOWN:
+    _pos.y++;
+    break;
+  };
 };
 
-Appearance &Player::style() {
-  return _style;
-};
+Position &Player::pos() { return _pos; };
+
+Appearance &Player::style() { return _style; };

@@ -1,3 +1,4 @@
+#include <Direction.hpp>
 #include <Game.hpp>
 #include <GameText.hpp>
 #include <ncurses.h>
@@ -8,7 +9,6 @@ Game::Game() {
   char c = getch();
 
   if (c == 'q' || c == 'Q') {
-    _screen->print("Goodbye!");
     getch();
   } else {
     _player = new Player(0, 0);
@@ -17,14 +17,14 @@ Game::Game() {
   }
 };
 
-Game::~Game() { 
+Game::~Game() {
   delete _screen;
   delete _player;
 };
 
 void Game::start() {
   // loop forever
-  while(1) {
+  while (1) {
     _screen->print(_player);
     char ch = getch();
     bool quit = processInput(ch);
@@ -36,17 +36,25 @@ void Game::start() {
 
 bool Game::processInput(char ch) {
   switch (ch) {
-    case 'q':
-    case 'Q':
-      return TRUE;
-    case 'a':
-      break;
-    case 'w':
-      break;
-    case 'd':
-      break;
-    case 's':
-      break;
+  case 'q':
+  case 'Q':
+    return TRUE;
+  case 'a':
+    _screen->clearPos(_player->pos());
+    _player->move(LEFT);
+    break;
+  case 'w':
+    _screen->clearPos(_player->pos());
+    _player->move(UP);
+    break;
+  case 'd':
+    _screen->clearPos(_player->pos());
+    _player->move(RIGHT);
+    break;
+  case 's':
+    _screen->clearPos(_player->pos());
+    _player->move(DOWN);
+    break;
   };
 
   return FALSE;

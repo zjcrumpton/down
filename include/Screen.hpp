@@ -1,4 +1,5 @@
 #pragma once
+#include <Components.hpp>
 #include <Player.hpp>
 #include <ncurses.h>
 
@@ -24,6 +25,7 @@ public:
     refresh();   // Print to the real screen
   };
 
+  void clearPos(Position &pos);
 
 private:
   // Create color pairs

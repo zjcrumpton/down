@@ -1,5 +1,6 @@
 #include <Colors.hpp>
 
 namespace Colors {
-  extern int PLAYER = 1;
-}
+int PLAYER = 1;
+int EMPTY = 2;
+} // namespace Colors

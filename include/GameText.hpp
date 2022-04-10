@@ -1,5 +1,5 @@
 #pragma once
 
 namespace GameText {
-  extern char *WELCOME_MSG;
+extern char *WELCOME_MSG;
 };

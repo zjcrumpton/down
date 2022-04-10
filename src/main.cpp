@@ -1,7 +1,7 @@
-#include <iostream>
 #include <Game.hpp>
+#include <iostream>
 
-int main() { 
+int main() {
   // Start the game;
   Game();
 };
