@@ -12,8 +12,7 @@ Game::Game() {
     getch();
   } else {
     _player = new Player(0, 0);
-    _screen->print(_player);
-
+    clear();
     start();
   }
 };
@@ -23,7 +22,32 @@ Game::~Game() {
   delete _player;
 };
 
-void Game::start() { 
-  _screen->print("Game Started!");
-  getch();
+void Game::start() {
+  // loop forever
+  while(1) {
+    _screen->print(_player);
+    char ch = getch();
+    bool quit = processInput(ch);
+    if (quit) {
+      break;
+    }
+  };
+};
+
+bool Game::processInput(char ch) {
+  switch (ch) {
+    case 'q':
+    case 'Q':
+      return TRUE;
+    case 'a':
+      break;
+    case 'w':
+      break;
+    case 'd':
+      break;
+    case 's':
+      break;
+  };
+
+  return FALSE;
 };
