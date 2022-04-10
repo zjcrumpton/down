@@ -1,9 +1,6 @@
 #include <Colors.hpp>
-#include <Components.hpp>
-#include <Player.hpp>
 #include <Screen.hpp>
 #include <Symbols.hpp>
-#include <ncurses.h>
 
 Screen::Screen() {
   initscr(); // Start curses mode

@@ -1,6 +1,4 @@
 #include <Colors.hpp>
-#include <Components.hpp>
-#include <Direction.hpp>
 #include <Player.hpp>
 #include <Symbols.hpp>
 
