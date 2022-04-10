@@ -1,4 +1,5 @@
 #pragma once
+#include <Player.hpp>
 #include <Screen.hpp>
 
 class Game {
@@ -10,6 +11,7 @@ public:
 
 private:
   Screen *_screen;
+  Player *_player;
 
   // Start the main game loop
   void start();

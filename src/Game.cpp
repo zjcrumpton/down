@@ -9,11 +9,21 @@ Game::Game() {
 
   if (c == 'q' || c == 'Q') {
     _screen->print("Goodbye!");
+    getch();
   } else {
+    _player = new Player(0, 0);
+    _screen->print(_player);
+
     start();
   }
 };
 
-Game::~Game() { delete _screen; };
+Game::~Game() { 
+  delete _screen;
+  delete _player;
+};
 
-void Game::start() { _screen->print("Game Started!"); };
+void Game::start() { 
+  _screen->print("Game Started!");
+  getch();
+};
