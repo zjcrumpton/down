@@ -21,6 +21,7 @@ Game::Game() {
 Game::~Game() {
   delete _screen;
   delete _player;
+  delete _activeLevel;
 };
 
 void Game::start() {
