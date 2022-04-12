@@ -4,6 +4,7 @@
 #include <Utility.hpp>
 #include <ncurses.h>
 #include <utility>
+#include <iostream>
 
 Game::Game() {
   _activeLevel = new Level();
@@ -102,9 +103,15 @@ bool Game::processCollision(Position *pos) {
   TileMap tiles = _activeLevel->tiles();
   TileMap::iterator it = tiles.find(posString);
 
-  // key was found
+  // key was found and is a blocking terrain type
   if (it != tiles.end()) {
-    return true;
+    Tile tile = it->second;
+    bool blocking = tile.terrain()->blocking;
+    if (blocking) {
+      return true;
+    } else {
+      return false;
+    }
   } else {
     return false;
   }
