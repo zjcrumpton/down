@@ -3,8 +3,8 @@
 #include <Symbols.hpp>
 
 Player::Player(int x, int y) {
-  _pos.x = x;
-  _pos.y = y;
+  _pos.first = x;
+  _pos.second = y;
   _style.color = Colors::PLAYER;
   _style.symbol = Symbols::PLAYER;
 };
@@ -12,20 +12,20 @@ Player::Player(int x, int y) {
 void Player::move(Direction d) {
   switch (d) {
   case LEFT:
-    _pos.x--;
+    _pos.first--;
     break;
   case RIGHT:
-    _pos.x++;
+    _pos.first++;
     break;
   case UP:
-    _pos.y--;
+    _pos.second--;
     break;
   case DOWN:
-    _pos.y++;
+    _pos.second++;
     break;
   };
 };
 
-Position &Player::pos() { return _pos; };
+Position Player::pos() { return _pos; };
 
 Appearance &Player::style() { return _style; };

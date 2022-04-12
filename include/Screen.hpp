@@ -1,6 +1,9 @@
 #pragma once
 #include <Components.hpp>
 #include <Player.hpp>
+#include <Tile.hpp>
+#include <Level.hpp>
+#include <Utility.hpp>
 #include <ncurses.h>
 
 class Screen {
@@ -15,7 +18,7 @@ public:
     Appearance style = player->style();
 
     attron(COLOR_PAIR(style.color));
-    mvaddch(pos.y, pos.x, style.symbol);
+    mvaddch(pos.second, pos.first, style.symbol);
     attroff(COLOR_PAIR(style.color));
   };
 
@@ -25,7 +28,26 @@ public:
     refresh();   // Print to the real screen
   };
 
-  void clearPos(Position &pos);
+  // print the level terrain to the screen
+  void print(Level *level) {
+    TileMap tiles = level->tiles();
+    TileMap::iterator it = tiles.begin();
+
+    while (it != tiles.end()) {
+      Tile tile = it->second;
+      Terrain terrain = *tile.terrain();
+      Appearance style = terrain.style;
+      Position pos = parsePosition(it->first);
+
+      attron(COLOR_PAIR(style.color));
+      mvaddch(pos.second, pos.first, style.symbol);
+      attroff(COLOR_PAIR(style.color));
+
+      it++;
+    };
+  };
+
+  void clearPos(Position pos);
 
 private:
   // Create color pairs

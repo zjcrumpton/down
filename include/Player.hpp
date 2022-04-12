@@ -8,7 +8,7 @@ public:
   // Update the user's position
   void move(Direction d);
   // Getters
-  Position &pos();
+  Position pos();
   Appearance &style();
 
 private:

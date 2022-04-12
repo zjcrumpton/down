@@ -5,4 +5,5 @@ using ColorType = int;
 namespace Colors {
 extern int PLAYER;
 extern int EMPTY;
-} // namespace Colors
+extern int STONE;
+}

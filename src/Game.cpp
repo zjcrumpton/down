@@ -4,6 +4,7 @@
 #include <ncurses.h>
 
 Game::Game() {
+  _activeLevel = new Level();
   _screen = new Screen();
   _screen->print(GameText::WELCOME_MSG);
   char c = getch();
@@ -23,6 +24,9 @@ Game::~Game() {
 };
 
 void Game::start() {
+  _activeLevel->add(std::make_pair(10, 10), &STONE_WALL);
+  _screen->print(_activeLevel);
+
   // loop forever
   while (1) {
     _screen->print(_player);
@@ -38,7 +42,7 @@ bool Game::processInput(char ch) {
   switch (ch) {
   case 'q':
   case 'Q':
-    return TRUE;
+    return true;
   case 'a':
     _screen->clearPos(_player->pos());
     _player->move(LEFT);

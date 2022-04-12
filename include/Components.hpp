@@ -1,12 +1,10 @@
 #pragma once
 #include <Colors.hpp>
+#include <utility>
 
 struct Appearance {
   char symbol;
   ColorType color;
 };
 
-struct Position {
-  int x;
-  int y;
-};
+using Position = std::pair<int, int>;

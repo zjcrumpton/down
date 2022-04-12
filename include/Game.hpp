@@ -1,6 +1,7 @@
 #pragma once
 #include <Player.hpp>
 #include <Screen.hpp>
+#include <Level.hpp>
 
 class Game {
 public:
@@ -12,6 +13,7 @@ public:
 private:
   Screen *_screen;
   Player *_player;
+  Level *_activeLevel;
 
   // Start the main game loop
   void start();
