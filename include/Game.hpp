@@ -1,7 +1,8 @@
 #pragma once
+#include <Components.hpp>
+#include <Level.hpp>
 #include <Player.hpp>
 #include <Screen.hpp>
-#include <Level.hpp>
 
 class Game {
 public:
@@ -20,4 +21,5 @@ private:
   // Process player input. If function returns true, player has chosen to exit
   // the program.
   bool processInput(char ch);
+  bool processCollision(Position *pos);
 };

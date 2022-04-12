@@ -9,5 +9,5 @@ public:
   Terrain *terrain();
 
 private:
-  Terrain *_terrain; 
+  Terrain *_terrain;
 };

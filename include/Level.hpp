@@ -1,8 +1,8 @@
 #pragma once
-#include <Tile.hpp>
-#include <unordered_map>
-#include <string>
 #include <Components.hpp>
+#include <Tile.hpp>
+#include <string>
+#include <unordered_map>
 
 using TileMap = std::unordered_map<std::string, Tile>;
 

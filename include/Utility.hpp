@@ -1,4 +1,6 @@
 #pragma once
+#include <Components.hpp>
 #include <string>
 
-std::pair<int, int> parsePosition(std::string posString);
+Position parsePosition(std::string posString);
+std::string stringifyPosition(Position pos);

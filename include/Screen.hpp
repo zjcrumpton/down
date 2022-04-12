@@ -1,8 +1,8 @@
 #pragma once
 #include <Components.hpp>
+#include <Level.hpp>
 #include <Player.hpp>
 #include <Tile.hpp>
-#include <Level.hpp>
 #include <Utility.hpp>
 #include <ncurses.h>
 

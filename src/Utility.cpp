@@ -1,17 +1,17 @@
-#include <Utility.hpp>
 #include <Components.hpp>
-#include <utility>
-#include <string>
+#include <Tile.hpp>
+#include <Utility.hpp>
 #include <sstream>
+#include <string>
+#include <utility>
 
 Position parsePosition(std::string posString) {
   Position pos;
   std::stringstream ss(posString);
 
-  while( ss.good() )
-  {
+  while (ss.good()) {
     std::string substr;
-    std::getline( ss, substr, ',' );
+    std::getline(ss, substr, ',');
     int coord = std::stoi(substr);
     if (pos.first) {
       pos.second = coord;
@@ -21,4 +21,11 @@ Position parsePosition(std::string posString) {
   }
 
   return pos;
+};
+
+std::string stringifyPosition(Position pos) {
+  char buffer[10];
+  sprintf(buffer, "%d,%d", pos.first, pos.second);
+
+  return buffer;
 };

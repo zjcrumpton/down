@@ -6,4 +6,4 @@ namespace Colors {
 extern int PLAYER;
 extern int EMPTY;
 extern int STONE;
-}
+} // namespace Colors
